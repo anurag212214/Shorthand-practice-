@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorthand Practice Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================================
+     LOGIN SCREEN
+================================ -->
+
+<section id="loginScreen" class="screen">
+
+    <div class="login-container">
+
+        <div class="brand-area">
+            <div class="brand-icon">⌨</div>
+
+            <h1>Shorthand Practice</h1>
+
+            <p>
+                Professional typing & shorthand practice portal
+            </p>
+        </div>
+
+        <div class="login-card">
+
+            <div class="login-tabs">
+
+                <button
+                    type="button"
+                    class="login-tab active"
+                    data-login-type="student">
+                    Student
+                </button>
+
+                <button
+                    type="button"
+                    class="login-tab"
+                    data-login-type="admin">
+                    Admin
+                </button>
+
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username / Student ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required>
+
+                </div>
+
+                <div
+                    id="loginError"
+                    class="login-error"
+                    hidden>
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button login-button">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+                Shorthand Practice Portal
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     ADMIN SCREEN
+================================ -->
+
+<section id="adminScreen" class="screen" hidden>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-icon small">
+                    ⌨
+                </div>
+
+                <div>
+                    <strong>Shorthand</strong>
+                    <span>Practice Portal</span>
+                </div>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <button
+                    type="button"
+                    class="nav-item active"
+                    data-admin-page="dashboard">
+                    Dashboard
+                </button>
+
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-admin-page="matters">
+                    Practice Matters
+                </button>
+
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-admin-page="students">
+                    Students
+                </button>
+
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-admin-page="results">
+                    Results
+                </button>
+
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-admin-page="settings">
+                    Settings
+                </button>
+
+            </nav>
+
+            <button
+                type="button"
+                id="adminLogout"
+                class="logout-button">
+                Logout
+            </button>
+
+        </aside>
+
+        <main class="dashboard-main">
+
+            <header class="topbar">
+
+                <div class="page-heading">
+
+                    <h1 id="adminPageTitle">
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Manage your shorthand practice portal
+                    </p>
+
+                </div>
+
+                <div class="profile-area">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ADMIN DASHBOARD -->
+
+            <section
+                id="adminDashboardPage"
+                class="admin-page">
+
+                <div class="welcome-banner">
+
+                    <div>
+
+                        <h2>
+                            Welcome back, Administrator 👋
+                        </h2>
+
+                        <p>
+                            Manage practice matters,
+                            students and performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📚
+                        </div>
+
+                        <div>
+                            <span>
+                                Practice Matters
+                            </span>
+
+                            <strong id="statMatters">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+                            <span>
+                                Students
+                            </span>
+
+                            <strong id="statStudents">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📝
+                        </div>
+
+                        <div>
+                            <span>
+                                Total Attempts
+                            </span>
+
+                            <strong id="statAttempts">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            🎯
+                        </div>
+
+                        <div>
+                            <span>
+                                Average Accuracy
+                            </span>
+
+                            <strong id="statAccuracy">
+                                0%
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-grid">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Practice Matters
+                                </h3>
+
+                                <p>
+                                    Latest practice material
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div id="recentMatters">
+
+                            <div class="empty-state">
+                                No practice matters yet.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Results
+                                </h3>
+
+                                <p>
+                                    Latest student attempts
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div id="recentResults">
+
+                            <div class="empty-state">
+                                No results yet.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+                        <!-- ================================
+                 PRACTICE MATTERS PAGE
+            ================================= -->
+
+            <section
+                id="adminMattersPage"
+                class="admin-page"
+                hidden>
+
+                <div class="section-toolbar">
+
+                    <div>
+                        <h2>Practice Matters</h2>
+                        <p>Create and manage practice material</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="newMatterButton"
+                        class="primary-button">
+                        + New Practice
+                    </button>
+
+                </div>
+
+
+                <!-- MATTER EDITOR -->
+
+                <div
+                    id="matterEditor"
+                    class="panel"
+                    hidden>
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3 id="matterEditorTitle">
+                                New Practice Matter
+                            </h3>
+
+                            <p>
+                                Enter practice details below
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="closeMatterEditor"
+                            class="icon-button">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <form id="matterForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="matterType">
+                                    Practice Type
+                                </label>
+
+                                <select id="matterType" required>
+
+                                    <option value="typing">
+                                        Typing
+                                    </option>
+
+                                    <option value="transcribe">
+                                        Transcribe
+                                    </option>
+
+                                    <option value="dictation">
+                                        Dictation
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="matterTitle">
+                                    Practice Title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="matterTitle"
+                                    placeholder="Enter practice title"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="matterWpm">
+                                    Target WPM
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="matterWpm"
+                                    min="1"
+                                    value="35"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="matterDuration">
+                                    Duration (minutes)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="matterDuration"
+                                    min="1"
+                                    value="5"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AUDIO -->
+
+                        <div
+                            id="matterAudioGroup"
+                            class="form-group"
+                            hidden>
+
+                            <label for="matterAudio">
+                                Dictation Audio
+                            </label>
+
+                            <input
+                                type="file"
+                                id="matterAudio"
+                                accept="audio/*">
+
+                            <small id="matterAudioName">
+                                Select an audio file for dictation.
+                            </small>
+
+                        </div>
+
+
+                        <!-- WRITTEN MATTER -->
+
+                        <div
+                            id="matterTextGroup"
+                            class="form-group">
+
+                            <label
+                                for="matterText"
+                                id="matterTextLabel">
+                                Practice Matter
+                            </label>
+
+                            <textarea
+                                id="matterText"
+                                rows="12"
+                                placeholder="Enter practice matter here...">
+                            </textarea>
+
+                        </div>
+
+
+                        <!-- FORMATTING -->
+
+                        <div
+                            id="matterFormattingGroup"
+                            class="panel-subsection">
+
+                            <h4>
+                                Matter Formatting
+                            </h4>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label for="matterFontSize">
+                                        Font Size
+                                    </label>
+
+                                    <select id="matterFontSize">
+
+                                        <option value="16">
+                                            16
+                                        </option>
+
+                                        <option value="18" selected>
+                                            18
+                                        </option>
+
+                                        <option value="20">
+                                            20
+                                        </option>
+
+                                        <option value="22">
+                                            22
+                                        </option>
+
+                                        <option value="24">
+                                            24
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="matterAlignment">
+                                        Alignment
+                                    </label>
+
+                                    <select id="matterAlignment">
+
+                                        <option value="left">
+                                            Left
+                                        </option>
+
+                                        <option value="center">
+                                            Center
+                                        </option>
+
+                                        <option value="right">
+                                            Right
+                                        </option>
+
+                                        <option value="justify">
+                                            Justify
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="format-options">
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        id="matterBold">
+                                    <span>Bold</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        id="matterItalic">
+                                    <span>Italic</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        id="matterUnderline">
+                                    <span>Underline</span>
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                id="cancelMatter">
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button">
+                                Save Practice Matter
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="panel">
+
+                    <div class="section-toolbar">
+
+                        <div class="search-box">
+
+                            <input
+                                type="search"
+                                id="matterSearch"
+                                placeholder="Search practice matters...">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table id="mattersTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>WPM</th>
+                                    <th>Duration</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================================
+                 STUDENTS PAGE
+            ================================= -->
+
+            <section
+                id="adminStudentsPage"
+                class="admin-page"
+                hidden>
+
+                <div class="section-toolbar">
+
+                    <div>
+
+                        <h2>
+                            Students
+                        </h2>
+
+                        <p>
+                            Manage student accounts
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="newStudentButton"
+                        class="primary-button">
+                        + New Student
+                    </button>
+
+                </div>
+
+
+                <!-- STUDENT EDITOR -->
+
+                <div
+                    id="studentEditor"
+                    class="panel"
+                    hidden>
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3 id="studentEditorTitle">
+                                New Student
+                            </h3>
+
+                            <p>
+                                Create or edit a student account
+                            </p>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="closeStudentEditor"
+                            class="icon-button">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <form id="studentForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="studentName">
+                                    Student Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="studentName"
+                                    placeholder="Enter student name"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentId">
+                                    Student ID / Username
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="studentId"
+                                    placeholder="Enter student ID"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentPassword">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="studentPassword"
+                                    placeholder="Enter password"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentStatus">
+                                    Status
+                                </label>
+
+                                <select id="studentStatus">
+
+                                    <option value="active">
+                                        Active
+                                    </option>
+
+                                    <option value="inactive">
+                                        Inactive
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                id="cancelStudent">
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button">
+                                Save Student
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- STUDENT TABLE -->
+
+                <div class="panel">
+
+                    <div class="table-wrapper">
+
+                        <table id="studentsTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Student ID</th>
+                                    <th>Status</th>
+                                    <th>Assigned Practices</th>
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                          </section><!-- =====================================================
+     ADMIN RESULTS PAGE
+===================================================== -->
+
+<section class="admin-page" id="adminResultsPage">
+    <div class="page-heading">
+        <div>
+            <h1>Results</h1>
+            <p>View student performance and practice history.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-header">
+            <div>
+                <h2>Practice Results</h2>
+                <p>Detailed student attempts and performance.</p>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Practice</th>
+                        <th>Type</th>
+                        <th>WPM</th>
+                        <th>Accuracy</th>
+                        <th>Mistakes</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     ADMIN SETTINGS PAGE
+===================================================== -->
+
+<section class="admin-page" id="adminSettingsPage">
+    <div class="page-heading">
+        <div>
+            <h1>Settings</h1>
+            <p>Manage portal preferences.</p>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Portal Settings</h2>
+                    <p>Configure the practice portal.</p>
+                </div>
+            </div>
+
+            <form id="settingsForm" class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="portalName">Portal Name</label>
+                    <input
+                        type="text"
+                        id="portalName"
+                        placeholder="Shorthand Practice Portal"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="defaultFontSize">Default Font Size</label>
+                    <input
+                        type="number"
+                        id="defaultFontSize"
+                        min="12"
+                        max="48"
+                        value="20"
+                    >
+                </div>
+
+                <div class="form-group settings-option">
+                    <label>Auto Save Results</label>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="autoSaveResults"
+                            checked
+                        >
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="form-actions full-width">
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="saveSettings"
+                    >
+                        Save Settings
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+</main>
+</div>
+</section>
+
+
+<!-- =====================================================
+     STUDENT SCREEN
+===================================================== -->
+
+<section id="studentScreen" class="screen">
+
+    <div class="student-layout">
+
+        <!-- Student Topbar -->
+        <header class="student-topbar">
+
+            <div class="student-brand">
+                <div class="brand-icon small">⌨</div>
+
+                <div>
+                    <strong>Shorthand Practice</strong>
+                    <span>Student Portal</span>
+                </div>
+            </div>
+
+            <div class="student-profile">
+
+                <div class="student-profile-info">
+                    <strong id="studentDisplayName">Student</strong>
+                    <span id="studentDisplayId">S001</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="studentLogout"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Student Main -->
+        <main class="student-main">
+
+            <!-- Welcome -->
+            <section class="student-welcome">
+                <div>
+                    <p class="eyebrow">Welcome back</p>
+
+                    <h1>
+                        Hello,
+                        <span id="studentWelcomeName">Student</span>
+                    </h1>
+
+                    <p>
+                        Complete your assigned practice sessions
+                        and track your performance.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- Student Stats -->
+            <section class="student-stats">
+
+                <div class="student-stat">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="studentCompleted">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="student-stat">
+                    <div class="stat-icon">⚡</div>
+
+                    <div>
+                        <span>Average WPM</span>
+                        <strong id="studentAverageWpm">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="student-stat">
+                    <div class="stat-icon">%</div>
+
+                    <div>
+                        <span>Average Accuracy</span>
+                        <strong id="studentAverageAccuracy">0%</strong>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Assigned Practices -->
+            <section class="student-section">
+
+                <div class="student-section-header">
+                    <div>
+                        <h2>Assigned Practice</h2>
+                        <p>Choose a practice session to begin.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="student-matter-cards"
+                    id="studentMatterCards"
+                >
+                </div>
+
+            </section>
+
+
+            <!-- Student History -->
+            <section class="student-section">
+
+                <div class="student-section-header">
+                    <div>
+                        <h2>Practice History</h2>
+                        <p>Your recent practice performance.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="student-history"
+                    id="studentHistory"
+                >
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</section><!-- =====================================================
+     PRACTICE SCREEN
+===================================================== -->
+
+<section id="practiceScreen" class="screen">
+
+    <div class="practice-layout">
+
+        <!-- Practice Topbar -->
+        <header class="practice-topbar">
+
+            <div class="practice-brand">
+                <div class="brand-icon small">⌨</div>
+
+                <div>
+                    <strong>Shorthand Practice</strong>
+                    <span id="practiceTypeLabel">Practice</span>
+                </div>
+            </div>
+
+            <div class="practice-title-area">
+                <h2 id="practiceTitle">Practice Test</h2>
+            </div>
+
+            <div class="practice-actions">
+                <div class="practice-stats">
+
+                    <div class="practice-stat">
+                        <span>Time</span>
+                        <strong id="timer">00:00</strong>
+                    </div>
+
+                    <div class="practice-stat live-performance">
+                        <span>WPM</span>
+                        <strong id="liveWpm">--</strong>
+                    </div>
+
+                    <div class="practice-stat live-performance">
+                        <span>Words</span>
+                        <strong id="liveWords">--</strong>
+                    </div>
+
+                    <div class="practice-stat">
+                        <span>Status</span>
+                        <strong id="typingStatus" class="status-ready">
+                            Ready
+                        </strong>
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="exitPractice"
+                >
+                    Exit
+                </button>
+            </div>
+
+        </header>
+
+
+        <!-- Practice Main -->
+        <main class="practice-main">
+
+            <!-- Dictation Audio -->
+            <section
+                id="dictationAudioArea"
+                class="dictation-audio-area"
+                hidden
+            >
+                <div class="practice-target-header">
+                    <div>
+                        <span class="eyebrow">DICTATION</span>
+                        <h3>Listen carefully and type what you hear</h3>
+                    </div>
+                </div>
+
+                <audio
+                    id="dictationAudio"
+                    controls
+                    preload="metadata"
+                ></audio>
+            </section>
+
+
+            <!-- Practice Toolbar -->
+            <section
+                id="practiceToolbar"
+                class="practice-toolbar"
+            >
+
+                <div class="toolbar-group">
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="bold"
+                        aria-label="Bold"
+                        title="Bold"
+                    >
+                        <strong>B</strong>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="italic"
+                        aria-label="Italic"
+                        title="Italic"
+                    >
+                        <em>I</em>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="underline"
+                        aria-label="Underline"
+                        title="Underline"
+                    >
+                        <u>U</u>
+                    </button>
+
+                </div>
+
+
+                <div class="toolbar-divider"></div>
+
+
+                <div class="toolbar-group">
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="left"
+                        aria-label="Align left"
+                        title="Align Left"
+                    >
+                        ☰
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="center"
+                        aria-label="Align center"
+                        title="Center"
+                    >
+                        ≡
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="right"
+                        aria-label="Align right"
+                        title="Align Right"
+                    >
+                        ≡
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        data-format="justify"
+                        aria-label="Justify"
+                        title="Justify"
+                    >
+                        ☷
+                    </button>
+
+                </div>
+
+
+                <div class="toolbar-divider"></div>
+
+
+                <div class="toolbar-group font-controls">
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        id="fontDecrease"
+                        aria-label="Decrease font size"
+                        title="Decrease Font Size"
+                    >
+                        A−
+                    </button>
+
+                    <span id="fontSizeDisplay">20px</span>
+
+                    <button
+                        type="button"
+                        class="toolbar-button"
+                        id="fontIncrease"
+                        aria-label="Increase font size"
+                        title="Increase Font Size"
+                    >
+                        A+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Practice Target -->
+            <section class="practice-target-section">
+
+                <div
+                    id="practiceTarget"
+                    class="practice-target"
+                >
+
+                    <!-- Transcribe mode -->
+                    <div
+                        id="transcribeInstruction"
+                        class="target-badge"
+                        hidden
+                    >
+                        Transcription Test — Original matter is hidden
+                    </div>
+
+
+                    <!-- Typing mode -->
+                    <div
+                        id="typingReferenceArea"
+                        class="typing-reference-area"
+                        hidden
+                    >
+
+                        <div class="reference-header">
+                            <span>REFERENCE MATTER</span>
+                            <span>Type the matter below</span>
+                        </div>
+
+                        <div
+                            id="typingReference"
+                            class="typing-reference"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Typing Area -->
+            <section class="typing-area-wrapper">
+
+                <div class="typing-header">
+
+                    <div>
+                        <strong>Typing Area</strong>
+                        <span id="practiceModeHint">
+                            Start typing when ready.
+                        </span>
+                    </div>
+
+                    <div
+                        id="liveErrorStatus"
+                        class="live-error-status"
+                    >
+                        Mistakes: --
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    id="typingArea"
+                    class="typing-area"
+                    placeholder="Start typing here..."
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                ></textarea>
+
+
+                <div class="typing-footer">
+
+                    <span id="characterCount">
+                        0 characters
+                    </span>
+
+                    <div class="practice-controls">
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="resetPractice"
+                        >
+                            Reset
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="startPractice"
+                        >
+                            Start Test
+                        </button>
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="finishPractice"
+                        >
+                            Submit Test
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+===================================================== -->
+
+<section id="resultScreen" class="screen">
+
+    <div class="result-layout">
+
+        <header class="result-header">
+
+            <div>
+                <p class="eyebrow">PRACTICE COMPLETE</p>
+
+                <h1>Practice Result</h1>
+
+                <p id="resultSubtitle">
+                    Your detailed performance analysis is ready.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- Result Summary -->
+        <section class="result-summary">
+
+            <div class="result-main-score">
+
+                <span>Accuracy</span>
+
+                <strong id="resultAccuracy">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="result-metrics">
+
+                <div class="result-metric">
+                    <span>WPM</span>
+                    <strong id="resultWpm">0</strong>
+                </div>
+
+                <div class="result-metric">
+                    <span>Time</span>
+                    <strong id="resultTime">00:00</strong>
+                </div>
+
+                <div class="result-metric">
+                    <span>Words</span>
+                    <strong id="resultWords">0</strong>
+                </div>
+
+                <div class="result-metric">
+                    <span>Mistakes</span>
+                    <strong id="mistakeCount">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Detailed Analysis -->
+        <main class="result-main">
+
+            <section class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Mistake Analysis</h2>
+                        <p>
+                            Review incorrect, missing and extra words.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="mistakesList"
+                    class="mistakes-list"
+                >
+                </div>
+
+            </section>
+
+
+            <section class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Word-by-Word Analysis</h2>
+                        <p>
+                            Detailed comparison of your typing.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="wordAnalysis"
+                    class="word-analysis"
+                >
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Result Actions -->
+        <div class="result-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="backToDashboard"
+            >
+                Back to Dashboard
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="practiceAgain"
+            >
+                Practice Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+>
+    <span id="toastMessage"></span>
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+                      </html>
